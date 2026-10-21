@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------ */
+/* Tokens                                                              */
+/* ------------------------------------------------------------------ */
+@theme {
+  --color-asphalt: #0a0a0c;
+  --color-carbon: #141418;
+  --color-carbon-hi: #1c1c22;
+  --color-titanium: #e2e4e9;
+  --color-steel: #71717a;
+  --color-redline: #ff2a00;
+  --color-hairline: rgb(255 255 255 / 0.08);
+  --color-hairline-strong: rgb(255 255 255 / 0.16);
+
+  --font-display: "Anton", "Impact", "Arial Narrow Bold", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
+  --ease-snap: cubic-bezier(0.2, 0.9, 0.1, 1);
+  --ease-mech: cubic-bezier(0.7, 0, 0.2, 1);
+}
+
+:root {
+  --gutter: clamp(16px, 3vw, 48px);
+  --hud-top: 56px;
+  --hud-bottom: 72px;
+  color-scheme: dark;
+}
+
+@media (max-width: 767px) {
+  :root {
+    --hud-top: 52px;
+    --hud-bottom: 60px;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Base                                                                */
+/* ------------------------------------------------------------------ */
+@layer base {
+  html {
+    background: var(--color-asphalt);
+    color: var(--color-titanium);
+    font-family: var(--font-mono);
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: clip;
+  }
+
+  body {
+    background: var(--color-asphalt);
+    overflow-x: clip;
+    min-height: 100svh;
+  }
+
+  ::selection {
+    background: var(--color-redline);
+    color: var(--color-asphalt);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-redline);
+    outline-offset: 3px;
+  }
+
+  img {
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  /* Native scrollbar in TFT colours (Lenis keeps the native bar) */
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: #3a3a42 var(--color-asphalt);
+  }
+}
