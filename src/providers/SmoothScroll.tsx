@@ -1,14 +1,15 @@
 import { createContext, useCallback, useContext, useEffect, useState, type ReactNode } from "react";
 import Lenis from "lenis";
 import { gsap, ScrollTrigger } from "../lib/gsap";
+import { sampleTelemetry } from "../lib/telemetry";
 import { useReducedMotion } from "../hooks/useReducedMotion";
 
 const LenisContext = createContext<Lenis | null>(null);
 
 /**
- * Owns the single animation loop: gsap.ticker drives Lenis (seconds -> ms) and
- * Lenis notifies ScrollTrigger on every scroll. Lenis is not created at all
- * under prefers-reduced-motion.
+ * Owns the single animation loop: gsap.ticker drives Lenis (seconds -> ms),
+ * Lenis notifies ScrollTrigger on every scroll, and telemetry is sampled on the
+ * same frame. Lenis is not created at all under prefers-reduced-motion.
  */
 export function SmoothScroll({ children }: { children: ReactNode }) {
   const reduced = useReducedMotion();
@@ -20,6 +21,7 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
 
     const tick = (time: number) => {
       instance?.raf(time * 1000);
+      sampleTelemetry(instance, time);
     };
     gsap.ticker.add(tick);
     gsap.ticker.lagSmoothing(0);
