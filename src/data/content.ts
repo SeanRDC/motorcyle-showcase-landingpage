@@ -6,4 +6,5 @@
 
 export const ASSETS = {
   hero: "/assets/bikes/hero-supersport.webp",
+  anatomy: "/assets/bikes/anatomy-streetfighter.webp",
 } as const;

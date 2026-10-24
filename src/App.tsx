@@ -5,6 +5,7 @@ import { SmoothScroll } from "./providers/SmoothScroll";
 import { Grain, GridLines } from "./components/ui/Atmosphere";
 import { HudOverlay } from "./components/HudOverlay";
 import { HeroIgnition } from "./components/HeroIgnition";
+import { BikeDeconstruction } from "./components/BikeDeconstruction";
 
 function Experience() {
   const main = useRef<HTMLElement>(null);
@@ -41,6 +42,7 @@ function Experience() {
       <HudOverlay />
       <main ref={main} className="relative z-[1]">
         <HeroIgnition />
+        <BikeDeconstruction />
       </main>
       <Grain />
     </>
