@@ -83,3 +83,41 @@ export const BIKES: Bike[] = [
     specs: { displacement: 900, weight: 206, topSpeed: 200 },
   },
 ];
+
+export const TESTIMONIALS = [
+  {
+    quote:
+      "They set the bike up for my weight and my line into turn one, not for some brochure rider. I took two and a half seconds off my best lap.",
+    rider: "Dana Whitlock",
+    bike: "RR-999 Redline",
+    delta: "-2.4 s",
+    context: "Phillip Island, best lap",
+  },
+  {
+    quote:
+      "Collected the Meridian on a Friday with luggage on and the suspension set for two-up. Rode 1,900 km that week without touching a clicker.",
+    rider: "Mateo Ruiz",
+    bike: "ADV-1250 Meridian",
+    delta: "1,900 km",
+    context: "First week, no adjustments",
+  },
+  {
+    quote:
+      "The dyno sheet came with the bike. Eleven horsepower more after the map, and they showed me where every one of them came from.",
+    rider: "Priya Nair",
+    bike: "SF-1300 Brawler",
+    delta: "+11 hp",
+    context: "After custom map",
+  },
+];
+
+export const CLASSIFICATION = [
+  { season: 2025, series: "National Superbike", cls: "Superstock 1000", rider: "K. Ostrowski", result: "Champion" },
+  { season: 2025, series: "Endurance Cup", cls: "Privateer", rider: "Team Apex 77", result: "P3" },
+  { season: 2024, series: "National Superbike", cls: "Supersport", rider: "L. Brandt", result: "Champion" },
+  { season: 2024, series: "Road Racing Series", cls: "Superbike", rider: "M. Calloway", result: "P2" },
+  { season: 2023, series: "National Superbike", cls: "Superstock 1000", rider: "K. Ostrowski", result: "P2" },
+  { season: 2022, series: "Endurance Cup", cls: "Privateer", rider: "Team Apex 77", result: "Champion" },
+];
+
+export const CIRCUITS = ["Mugello", "Phillip Island", "Laguna Seca", "Suzuka", "Assen", "Jerez", "Sachsenring", "Brno"];
