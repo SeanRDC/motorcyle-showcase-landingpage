@@ -8,6 +8,7 @@ import { HudOverlay } from "./components/HudOverlay";
 import { HeroIgnition } from "./components/HeroIgnition";
 import { BikeDeconstruction } from "./components/BikeDeconstruction";
 import { HorizontalShowroom } from "./components/HorizontalShowroom";
+import { ServicesBento } from "./components/ServicesBento";
 
 function Experience() {
   const main = useRef<HTMLElement>(null);
@@ -50,6 +51,7 @@ function Experience() {
         <HeroIgnition />
         <BikeDeconstruction />
         <HorizontalShowroom onInspect={inspect} />
+        <ServicesBento />
       </main>
       <Grain />
     </>

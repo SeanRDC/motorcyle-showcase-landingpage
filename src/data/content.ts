@@ -9,6 +9,9 @@ export type CategoryId = "supersport" | "naked" | "adventure" | "cafe";
 export const ASSETS = {
   hero: "/assets/bikes/hero-supersport.webp",
   anatomy: "/assets/bikes/anatomy-streetfighter.webp",
+  dyno: "/assets/bikes/svc-dyno.webp",
+  track: "/assets/bikes/svc-track.webp",
+  parts: "/assets/bikes/svc-parts.webp",
 } as const;
 
 export type Bike = {
