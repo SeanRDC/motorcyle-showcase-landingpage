@@ -5,10 +5,12 @@
  */
 
 export type CategoryId = "supersport" | "naked" | "adventure" | "cafe";
+export type ServiceId = "test-ride" | "viewing" | "trade-in";
 
 export const ASSETS = {
   hero: "/assets/bikes/hero-supersport.webp",
   anatomy: "/assets/bikes/anatomy-streetfighter.webp",
+  pitRear: "/assets/bikes/pit-rear.webp",
   dyno: "/assets/bikes/svc-dyno.webp",
   track: "/assets/bikes/svc-track.webp",
   parts: "/assets/bikes/svc-parts.webp",
@@ -83,6 +85,14 @@ export const BIKES: Bike[] = [
     specs: { displacement: 900, weight: 206, topSpeed: 200 },
   },
 ];
+
+export const SERVICES: { id: ServiceId; name: string; detail: string }[] = [
+  { id: "test-ride", name: "Test ride", detail: "45 minutes on our road loop, with a rider coach if you want one." },
+  { id: "viewing", name: "Private showroom viewing", detail: "After hours, one-on-one, with the workshop open for questions." },
+  { id: "trade-in", name: "Trade-in valuation", detail: "Bring your bike in. You leave with a written offer, valid for 14 days." },
+];
+
+export const TIME_SLOTS = ["Morning", "Afternoon", "Evening"] as const;
 
 export const TESTIMONIALS = [
   {

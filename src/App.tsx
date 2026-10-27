@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { gsap, ScrollTrigger, useGSAP } from "./lib/gsap";
 import { setGear, telemetry, type GearId } from "./lib/telemetry";
 import { SmoothScroll, useScrollTo } from "./providers/SmoothScroll";
@@ -10,10 +10,12 @@ import { BikeDeconstruction } from "./components/BikeDeconstruction";
 import { HorizontalShowroom } from "./components/HorizontalShowroom";
 import { ServicesBento } from "./components/ServicesBento";
 import { RiderMarquee } from "./components/RiderMarquee";
+import { PitStopCta, type BookingPreset } from "./components/PitStopCta";
 
 function Experience() {
   const main = useRef<HTMLElement>(null);
   const scrollTo = useScrollTo();
+  const [preset, setPreset] = useState<BookingPreset | null>(null);
 
   // Parent layout effects run after every child section has built its pins, so
   // these gear triggers are created last and measure the final pin spacing.
@@ -41,8 +43,10 @@ function Experience() {
     { scope: main },
   );
 
-  // TODO: preselect the bike in the booking form once it exists
-  const inspect = (_category: CategoryId) => scrollTo("#pit-stop");
+  const inspect = (category: CategoryId) => {
+    setPreset({ category, service: "viewing", nonce: Date.now() });
+    scrollTo("#pit-stop");
+  };
 
   return (
     <>
@@ -54,6 +58,7 @@ function Experience() {
         <HorizontalShowroom onInspect={inspect} />
         <ServicesBento />
         <RiderMarquee />
+        <PitStopCta preset={preset} />
       </main>
       <Grain />
     </>

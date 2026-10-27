@@ -239,3 +239,41 @@
   mix-blend-mode: screen;
   opacity: 0;
 }
+
+/* Form field: bottom rule that "charges" red on focus */
+.field-rule {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--color-redline);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform 420ms var(--ease-snap);
+}
+.field:focus-within .field-rule {
+  transform: scaleX(1);
+}
+.field:focus-within .field-prompt {
+  color: var(--color-redline);
+}
+
+/* Blinking terminal caret */
+.caret {
+  display: inline-block;
+  width: 0.55em;
+  height: 1em;
+  vertical-align: -0.12em;
+  background: currentColor;
+  animation: caret-blink 1s steps(1) infinite;
+}
+@keyframes caret-blink {
+  50% { opacity: 0; }
+}
+
+/* Taillight pulse in the finale */
+@keyframes tail-pulse {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
