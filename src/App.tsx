@@ -11,6 +11,7 @@ import { HorizontalShowroom } from "./components/HorizontalShowroom";
 import { ServicesBento } from "./components/ServicesBento";
 import { RiderMarquee } from "./components/RiderMarquee";
 import { PitStopCta, type BookingPreset } from "./components/PitStopCta";
+import { SiteFooter } from "./components/SiteFooter";
 
 function Experience() {
   const main = useRef<HTMLElement>(null);
@@ -60,6 +61,7 @@ function Experience() {
         <RiderMarquee />
         <PitStopCta preset={preset} />
       </main>
+      <SiteFooter />
       <Grain />
     </>
   );

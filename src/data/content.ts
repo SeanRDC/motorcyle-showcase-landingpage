@@ -131,3 +131,16 @@ export const CLASSIFICATION = [
 ];
 
 export const CIRCUITS = ["Mugello", "Phillip Island", "Laguna Seca", "Suzuka", "Assen", "Jerez", "Sachsenring", "Brno"];
+
+export const CREDITS = [
+  { use: "Hero supersport", author: "Rahul Lal", id: "Nv7hnFIm98k" },
+  { use: "Anatomy flagship", author: "Lucas T", id: "nUZgRPB2VW4" },
+  { use: "Supersport", author: "Vineet Naresh", id: "heJPDvxVURE" },
+  { use: "Hyper-naked", author: "Klim Musalimov", id: "9xML5M-D72g" },
+  { use: "Adventure", author: "Ilya Godze", id: "e7IaViDqYII" },
+  { use: "Custom cafe", author: "Leon Seierlein", id: "VcBMbn7KXHQ" },
+  { use: "Dyno lab", author: "Evgeniy Bezkorovayniy", id: "mHcr0PmibeE" },
+  { use: "Track day", author: "Muyenda Burnett", id: "ryYnJ-XU53k" },
+  { use: "Performance parts", author: "Ronnzy Moto", id: "2dO0evNNIOQ" },
+  { use: "Pit stop", author: "Hemantha Varma", id: "MHyZoeF4N1g" },
+];
