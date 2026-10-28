@@ -51,6 +51,12 @@ function Experience() {
 
   return (
     <>
+      <a
+        href="#pit-stop"
+        className="tft fixed left-3 top-3 z-[80] -translate-y-24 bg-redline px-4 py-3 font-bold text-asphalt focus:translate-y-0"
+      >
+        Skip to booking
+      </a>
       <GridLines />
       <HudOverlay />
       <main ref={main} className="relative z-[1]">
