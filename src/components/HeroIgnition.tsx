@@ -163,6 +163,11 @@ export function HeroIgnition() {
             src={ASSETS.hero}
             alt=""
             className="bike-img absolute inset-0 h-full w-full object-contain mix-blend-lighten"
+            style={{
+              // Feather the frame edge so the photo never reads as a rectangle on short viewports.
+              maskImage: "radial-gradient(ellipse 62% 56% at 51% 54%, #000 62%, transparent 100%)",
+              WebkitMaskImage: "radial-gradient(ellipse 62% 56% at 51% 54%, #000 62%, transparent 100%)",
+            }}
             fetchPriority="high"
             decoding="async"
           />
