@@ -109,7 +109,7 @@ export function HorizontalShowroom({ onInspect }: { onInspect: (id: CategoryId) 
   return (
     <section ref={root} id="lineup" data-gear="3" aria-labelledby="lineup-title" className="relative">
       <div className="showroom-pin relative overflow-hidden motion-safe:h-svh">
-        <div className="track flex h-full items-center gap-[5vw] motion-safe:w-max pl-gutter pr-[12vw] pt-[var(--hud-top)] pb-[calc(var(--hud-bottom)+56px)] will-change-transform motion-reduce:snap-x motion-reduce:snap-mandatory motion-reduce:overflow-x-auto motion-reduce:py-[14vh]">
+        <div className="track flex h-full items-center gap-[5vw] motion-safe:w-max pl-[var(--gutter)] pr-[12vw] pt-[var(--hud-top)] pb-[calc(var(--hud-bottom)+56px)] will-change-transform motion-reduce:snap-x motion-reduce:snap-mandatory motion-reduce:overflow-x-auto motion-reduce:py-[14vh]">
           {/* Intro panel */}
           <div className="flex w-[min(80vw,440px)] shrink-0 flex-col justify-center motion-reduce:snap-start">
             <h2 id="lineup-title" className="display text-[clamp(3.4rem,8vw,8.5rem)]">

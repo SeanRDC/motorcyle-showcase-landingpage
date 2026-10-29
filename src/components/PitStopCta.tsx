@@ -195,7 +195,7 @@ export function PitStopCta({ preset }: { preset: BookingPreset | null }) {
         />
 
         {/* Start lights: progress of the booking */}
-        <div className="absolute inset-x-0 bottom-0 p-gutter pb-[calc(var(--hud-bottom)+28px)] md:pb-[calc(var(--hud-bottom)+40px)]">
+        <div className="absolute inset-x-0 bottom-0 px-gutter pt-[var(--gutter)] pb-[calc(var(--hud-bottom)+28px)] md:pb-[calc(var(--hud-bottom)+40px)]">
           <div className="flex gap-2.5" role="img" aria-label={`${lit} of 5 booking steps ready`}>
             {[0, 1, 2, 3, 4].map((i) => (
               <span
