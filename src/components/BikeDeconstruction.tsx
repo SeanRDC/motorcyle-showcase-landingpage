@@ -121,6 +121,7 @@ export function BikeDeconstruction() {
         });
 
         const phaseAt = (p: 1 | 2 | 3) => (p - 1) * 3;
+        gsap.set(q(".reticle-ring"), { svgOrigin: "50 50" });
 
         PHASES.forEach(({ n }) => {
           const t0 = phaseAt(n);
@@ -130,7 +131,7 @@ export function BikeDeconstruction() {
           // Focus shift: spotlight + reticle travel to this phase's part
           tl.to(spot, { "--sx": `${f.x}%`, "--sy": `${f.y}%`, "--sr": `${f.r}%`, duration: 0.9 }, t0)
             .to(reticle, { left: `${f.x}%`, top: `${f.y}%`, autoAlpha: 1, duration: 0.9 }, t0)
-            .fromTo(q(".reticle-ring"), { rotation: (n - 1) * 120 }, { rotation: n * 120, svgOrigin: "50 50", duration: 3, ease: "none", immediateRender: false }, t0)
+            .fromTo(q(".reticle-ring"), { rotation: (n - 1) * 120 }, { rotation: n * 120, duration: 3, ease: "none", immediateRender: false }, t0)
             .fromTo(q(`.rail-fill[data-phase="${n}"]`), { scaleX: 0 }, { scaleX: 1, duration: 3, ease: "none" }, t0)
             .to(q(`.rail-label[data-phase="${n}"]`), { color: "#e2e4e9", duration: 0.2 }, t0);
 
@@ -143,8 +144,8 @@ export function BikeDeconstruction() {
             const at = t0 + 0.3 + i * 0.35;
             tl.fromTo(
               q(`.anchor-dot[data-id="${c.id}"]`),
-              { autoAlpha: 0, scale: 0 },
-              { autoAlpha: 1, scale: 1, svgOrigin: `${px(c.anchor.x)} ${py(c.anchor.y)}`, duration: 0.25, ease: "back.out(3)" },
+              { autoAlpha: 0, scale: 0, transformOrigin: "50% 50%" },
+              { autoAlpha: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.25, ease: "back.out(3)" },
               at,
             )
               .fromTo(q(`.callout-line[data-id="${c.id}"]`), { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.9, ease: "power2.out" }, at)
@@ -342,10 +343,14 @@ export function BikeDeconstruction() {
                   key={c.id}
                   data-id={c.id}
                   data-phase={c.phase}
-                  className={`callout-label invisible absolute max-w-[40%] -translate-y-full pb-1.5 opacity-0 ${
-                    c.align === "right" ? "-translate-x-full text-right" : ""
+                  className={`callout-label invisible absolute w-max max-w-[38%] -translate-y-full pb-1.5 opacity-0 ${
+                    c.align === "right" ? "text-right" : ""
                   }`}
-                  style={{ left: `${c.end.x}%`, top: `${c.end.y}%` }}
+                  style={
+                    c.align === "right"
+                      ? { right: `${100 - c.end.x}%`, top: `${c.end.y}%` }
+                      : { left: `${c.end.x}%`, top: `${c.end.y}%` }
+                  }
                 >
                   <span className="tft block text-[0.5rem] text-redline md:text-[0.5625rem]">{c.kicker}</span>
                   <span className="mt-0.5 block font-display text-[0.8rem] uppercase leading-tight text-titanium md:text-[1.15rem]">
