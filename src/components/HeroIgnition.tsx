@@ -206,11 +206,14 @@ export function HeroIgnition() {
 
         {/* TFT boot log */}
         <ol
-          className="tft absolute left-[var(--gutter)] top-[calc(var(--hud-top)+28px)] w-[min(78vw,330px)] space-y-1.5 text-[0.625rem] text-steel"
+          className="tft absolute left-[var(--gutter)] top-[calc(var(--hud-top)+28px)] w-[calc(100vw-2*var(--gutter)-144px)] space-y-1.5 text-[0.5625rem] text-steel md:w-[330px] md:text-[0.625rem]"
           aria-label="Ignition self-check"
         >
-          {BOOT_LOG.map(([item, state]) => (
-            <li key={item} className="boot-line invisible flex items-baseline gap-2 opacity-0">
+          {BOOT_LOG.map(([item, state], i) => (
+            <li
+              key={item}
+              className={`boot-line invisible items-baseline gap-2 opacity-0 ${i >= 4 ? "hidden md:flex" : "flex"}`}
+            >
               <span className="text-titanium/60">&gt;</span>
               <span className="text-titanium/90">{item}</span>
               <span className="min-w-4 flex-1 translate-y-[-3px] border-b border-dotted border-titanium/20" />
