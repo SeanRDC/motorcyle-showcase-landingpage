@@ -149,6 +149,8 @@ export function PitStopCta({ preset }: { preset: BookingPreset | null }) {
         gsap.fromTo(q(".tx-bar"), { scaleX: 0 }, { scaleX: 1, duration: reduce ? 0 : 1.15, ease: "power1.inOut" });
       }
       if (phase === "confirmed") {
+        // Heading uses opacity only (not autoAlpha) so it stays focusable for screen readers.
+        gsap.from(q(".confirm-heading"), { opacity: 0, duration: reduce ? 0.15 : 0.4 });
         gsap.from(q(".confirm-line"), {
           autoAlpha: 0,
           x: reduce ? 0 : -10,
@@ -366,7 +368,7 @@ export function PitStopCta({ preset }: { preset: BookingPreset | null }) {
           </form>
         ) : (
           <div className="mt-10 border border-hairline-strong bg-asphalt/70 p-6 md:p-8">
-            <h3 tabIndex={-1} className="confirm-heading confirm-line display text-[clamp(2rem,3.4vw,3.2rem)] text-redline outline-none">
+            <h3 tabIndex={-1} className="confirm-heading display text-[clamp(2rem,3.4vw,3.2rem)] text-redline outline-none">
               Booking received
             </h3>
             <dl className="mt-6 space-y-2 text-[0.8125rem]">
