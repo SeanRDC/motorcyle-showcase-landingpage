@@ -129,7 +129,7 @@ export function ServicesBento() {
   });
 
   return (
-    <section ref={root} id="services" data-gear="4" aria-labelledby="services-title" className="relative py-[18vh]">
+    <section ref={root} id="services" data-gear="4" aria-labelledby="services-title" className="relative pb-[8vh] pt-[18vh]">
       <div className="px-gutter">
         <header className="grid gap-6 md:grid-cols-12 md:items-end">
           <h2 id="services-title" className="display text-[clamp(3rem,8.5vw,9rem)] md:col-span-8">
