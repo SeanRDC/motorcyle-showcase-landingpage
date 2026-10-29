@@ -80,9 +80,8 @@ export function sampleTelemetry(lenis: Lenis | null, time: number) {
   telemetry.lean = lerp(telemetry.lean, clamp(-58, 58, telemetry.velocity * 1.35), 0.07);
 
   let target: number;
-  if (telemetry.rpmOverride !== null) {
-    target = telemetry.rpmOverride;
-    telemetry.rpm = target;
+  if (telemetry.rpmOverride !== null && telemetry.gear <= 1) {
+    telemetry.rpm = telemetry.rpmOverride;
     return;
   }
   if (telemetry.gear === 0) {

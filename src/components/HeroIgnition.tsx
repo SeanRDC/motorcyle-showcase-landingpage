@@ -82,12 +82,13 @@ export function HeroIgnition() {
           .from(q(".bike-img"), { autoAlpha: 0, duration: 2.2, ease: "power2.inOut" }, 0)
           .from(q(".prompt"), { autoAlpha: 0, y: 12, duration: 0.8 }, 1.1);
 
+        // Scrub keeps rendering briefly after onLeave; only own the tach while the pin is active.
         const driveRpm = () => {
           renderDial();
-          telemetry.rpmOverride = proxy.rpm;
+          if (tl.scrollTrigger?.isActive || window.scrollY < 1) telemetry.rpmOverride = proxy.rpm;
         };
 
-        const tl = gsap.timeline({
+        const tl: gsap.core.Timeline = gsap.timeline({
           defaults: { ease: "none" },
           scrollTrigger: {
             trigger: q(".hero-pin")[0],
