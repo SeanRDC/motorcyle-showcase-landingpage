@@ -125,7 +125,7 @@ export function HudOverlay() {
         </a>
 
         <p className="tft hidden text-steel lg:block">
-          <span className="text-redline">G{current.label}</span>
+          <span className="text-redline">{current.id === 0 ? "N" : `G${current.label}`}</span>
           <span className="mx-3 inline-block h-px w-6 bg-titanium/30 align-middle" />
           {current.name}
         </p>
