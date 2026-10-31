@@ -30,6 +30,10 @@ Every section has a `prefers-reduced-motion` path: Lenis is not created, pins ar
 
 The booking form validates and confirms on the client only. Wire `onSubmit` in `PitStopCta.tsx` to a real endpoint before going live.
 
+## Deployment
+
+Pushing to `main` builds the site and deploys it to GitHub Pages through `.github/workflows/deploy.yml`. The repository's Pages source must be set to GitHub Actions. The Vite `base` is relative, so reference files in `public/` through `import.meta.env.BASE_URL` rather than a leading `/`.
+
 ## Photography
 
 All images are stored locally in `public/assets/bikes/` and come from Unsplash under the [Unsplash License](https://unsplash.com/license). Photographers are credited in the footer and listed in `src/data/content.ts`. The licence plate in `pit-rear.webp` has been blurred.

@@ -7,13 +7,15 @@
 export type CategoryId = "supersport" | "naked" | "adventure" | "cafe";
 export type ServiceId = "test-ride" | "viewing" | "trade-in";
 
+const bikeImage = (file: string) => `${import.meta.env.BASE_URL}assets/bikes/${file}`;
+
 export const ASSETS = {
-  hero: "/assets/bikes/hero-supersport.webp",
-  anatomy: "/assets/bikes/anatomy-streetfighter.webp",
-  pitRear: "/assets/bikes/pit-rear.webp",
-  dyno: "/assets/bikes/svc-dyno.webp",
-  track: "/assets/bikes/svc-track.webp",
-  parts: "/assets/bikes/svc-parts.webp",
+  hero: bikeImage("hero-supersport.webp"),
+  anatomy: bikeImage("anatomy-streetfighter.webp"),
+  pitRear: bikeImage("pit-rear.webp"),
+  dyno: bikeImage("svc-dyno.webp"),
+  track: bikeImage("svc-track.webp"),
+  parts: bikeImage("svc-parts.webp"),
 } as const;
 
 export type Bike = {
@@ -40,7 +42,7 @@ export const BIKES: Bike[] = [
     id: "supersport",
     category: "Supersport",
     build: "RR-999 Redline",
-    image: "/assets/bikes/card-supersport.webp",
+    image: bikeImage("card-supersport.webp"),
     alt: "Red supersport motorcycle lit by vertical strip lights",
     focus: "50% 58%",
     blurb:
@@ -52,7 +54,7 @@ export const BIKES: Bike[] = [
     id: "naked",
     category: "Hyper-naked",
     build: "SF-1300 Brawler",
-    image: "/assets/bikes/card-naked.webp",
+    image: bikeImage("card-naked.webp"),
     alt: "Orange naked streetfighter parked on a monochrome city street",
     focus: "50% 44%",
     blurb:
@@ -64,7 +66,7 @@ export const BIKES: Bike[] = [
     id: "adventure",
     category: "Adventure touring",
     build: "ADV-1250 Meridian",
-    image: "/assets/bikes/card-adventure.webp",
+    image: bikeImage("card-adventure.webp"),
     alt: "Silver adventure motorcycle with aluminium panniers on rocky ground",
     focus: "50% 62%",
     blurb:
@@ -76,7 +78,7 @@ export const BIKES: Bike[] = [
     id: "cafe",
     category: "Custom cafe",
     build: "CR-900 Atelier",
-    image: "/assets/bikes/card-cafe.webp",
+    image: bikeImage("card-cafe.webp"),
     alt: "Black and white cafe racer under a single fluorescent tube in a concrete garage",
     focus: "50% 66%",
     blurb:
